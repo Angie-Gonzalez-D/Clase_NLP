@@ -26,6 +26,7 @@ parser.add_argument('Model', type=str, required=True, help='Modelo: Wrangler, Ta
 
 # modelo entrenado
 modelo = joblib.load('price_prediction_clf.pkl')
+encoders = joblib.load('encoders.pkl')
 
 resource_fields = api.model('Resource', {'result': fields.Float})
 
