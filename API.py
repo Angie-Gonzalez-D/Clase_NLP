@@ -44,6 +44,7 @@ class CarPriceApi(Resource):
         df = pd.DataFrame(X)
   
         # Codificar las variables categóricas utilizando TargetEncoder
+        encoder = TargetEncoder()
         X_encoded = encoder.transform(df)
         #print(X_encoded)
         
