@@ -4,7 +4,6 @@ from flask_restx import Api, Resource, fields
 from flask_cors import CORS
 import joblib
 import pandas as pd
-from category_encoders import TargetEncoder
 
 # Definición aplicación Flask
 app = Flask(__name__)
@@ -44,7 +43,6 @@ class CarPriceApi(Resource):
         df = pd.DataFrame(X)
   
         # Codificar las variables categóricas utilizando TargetEncoder
-        encoder = joblib.load('encoder.pkl')
         X_encoded = encoder.transform(df)
         #print(X_encoded)
         
