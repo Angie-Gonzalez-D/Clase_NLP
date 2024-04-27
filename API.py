@@ -50,8 +50,8 @@ class CarPriceApi(Resource):
         year, mileage, State, Make, Model = X_encoded.values.tolist()[0]
         #print('year', year,'mileage', mileage, 'state', State,'make', Make, 'model',Model)
     
-        features = [[year, mileage, State, Make, Model]]
-        prediccion = str(modelo.predict(features))
+        features = X_encoded.values.tolist()
+        prediccion = modelo.predict(features)
         
         return {'result': prediccion}, 200
 
