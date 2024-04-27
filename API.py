@@ -39,7 +39,7 @@ class CarPriceApi(Resource):
         state = args['State']
         make = args['Make']
         model = args['Model']
-        
+
         X = [{'year': [year], 'mileage': [mileage], 'State': [state], 'Make': [make], 'Model': [model]}]
         df = pd.DataFrame(X)
   
@@ -50,8 +50,8 @@ class CarPriceApi(Resource):
         year, mileage, State, Make, Model = X_encoded.values.tolist()[0]
         #print('year', year,'mileage', mileage, 'state', State,'make', Make, 'model',Model)
     
-        features = X_encoded.values.tolist()
-        prediccion = modelo.predict(features)
+        features = [[year, mileage, State, Make, Model]]
+        prediccion = str(modelo.predict(features))
         
         return {'result': prediccion}, 200
 
