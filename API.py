@@ -40,7 +40,7 @@ class CarPriceApi(Resource):
         make = args['Make']
         model = args['Model']
 
-        X = [{'year': [year], 'mileage': [mileage], 'State': [state], 'Make': [make], 'Model': [model]}]
+        X = {'year': [year], 'mileage': [mileage], 'State': [state], 'Make': [make], 'Model': [model]}
         df = pd.DataFrame(X)
   
         # Codificar las variables categóricas utilizando TargetEncoder
