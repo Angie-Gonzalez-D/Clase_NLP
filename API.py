@@ -4,6 +4,7 @@ from flask_restx import Api, Resource, fields
 from flask_cors import CORS
 import joblib
 import pandas as pd
+from category_encoders import TargetEncoder
 
 # Definición aplicación Flask
 app = Flask(__name__)
